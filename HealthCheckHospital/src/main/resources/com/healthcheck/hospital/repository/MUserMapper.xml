@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- M_User情報のマッパー -->
+<mapper namespace="com.healthcheck.hospital.repository.MUserMapper">
+<!-- 戻り値の型定義：MUserオブジェクト -->
+  <resultMap type="com.healthcheck.hospital.entity.MUser" id="resultMap1">
+  	<id column="user_id" property="userId" />
+  	<result column="password" property="password" />
+  	<result column="first_name" property="firstName" />
+  	<result column="last_name" property="lastName" />
+  	<result column="age" property="age" />
+  	<result column="sex" property="sex" />
+  	<result column="tel" property="tel" />
+  </resultMap>
+    <select id="selectMUser" resultMap="resultMap1">
+    	SELECT * FROM m_user WHERE user_id = #{userId}
+    </select>
+</mapper>
