@@ -1,8 +1,17 @@
 package com.healthcheck.hospital.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.healthcheck.hospital.entity.MUser;
+import com.healthcheck.hospital.form.AmbulantListForm;
+import com.healthcheck.hospital.service.AmbulantListService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -12,7 +21,12 @@ import jakarta.servlet.http.HttpSession;
  */
 @Controller
 public class MainMenuController {
+	// 受診者一覧情報
+	List<MUser> ambulantList;
 	
+	// 受診者一覧サービス定義
+	@Autowired
+	AmbulantListService ambulantListService;
 	
 	/**
 	 * 登録完了画面：メインメニュー画面に遷移する
@@ -27,11 +41,13 @@ public class MainMenuController {
 	/**
 	 * メインメニュー画面：受診者一覧リンクをクリックしたとき、
 	 * 受診者一覧画面に遷移する
+	 * @param model モデル
 	 * @return 遷移先のHTMLファイル名
 	 */
 	@GetMapping("/ambulantList")
-	public String showAmbulantList() {
-		return "AmbulantList";
+	public String showAmbulantList(@ModelAttribute AmbulantListForm form, Model model) {
+		// DBから受診者一覧情報を取得し、受診者一覧画面へ遷移する
+		return ambulantListService.sendAmbulantListPage(form, model);
 	}
 	
 	/**

@@ -28,4 +28,7 @@ public class MUser {
 	
 	// 電話番号
 	private long tel;
+	
+	// 検査項目情報
+	private MTestItem mTestItem;
 }

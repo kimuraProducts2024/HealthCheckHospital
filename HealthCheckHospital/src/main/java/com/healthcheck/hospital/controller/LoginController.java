@@ -22,7 +22,7 @@ public class LoginController {
 	MUserService mUserService;
 	
 	/*
-	 * ログイン画面表示
+	 * ログイン画面：初期表示
 	 * @return ログイン画面のファイル名
 	 */
 	@GetMapping("/")
@@ -30,6 +30,15 @@ public class LoginController {
 		return "Login";
 	}
 	
+	/*
+	 * ログイン画面：ログインボタン押下時処理
+	 * @param userId ユーザID
+	 * @param password パスワード
+	 * @param redirectAttributes リダイレクト受渡しオブジェクト
+	 * @param session セッション変数
+	 * @return 遷移先のHTMLファイル名
+	 * @throws Exception 例外
+	 */
 	@PostMapping("/login")
 	public String login(@RequestParam String userId, @RequestParam String password,
 							RedirectAttributes redirectAttributes, HttpSession session) throws Exception {
