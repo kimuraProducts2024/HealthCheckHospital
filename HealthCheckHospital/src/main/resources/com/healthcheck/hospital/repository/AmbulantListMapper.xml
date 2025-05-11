@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--  M_User、M_Test_Item情報のマッパー -->
+<mapper namespace="com.healthcheck.hospital.repository.AmbulantListMapper">
+<!-- 戻り値の型定義 -->
+  <resultMap type="com.healthcheck.hospital.entity.MUser" id="ambulantListMap">
+  	<id column="user_id" property="userId" />
+  	<result column="first_name" property="firstName" />
+  	<result column="last_name" property="lastName" />
+  	<collection property="mTestItem" ofType="com.healthcheck.hospital.entity.MTestItem">
+  		<result column="height" property="height" />
+  		<result column="weight" property="weight" />
+  		<result column="vision_right" property="visionRight" />
+  		<result column="vision_left" property="visionLeft" />
+  		<result column="hearing" property="hearing" />
+  		<result column="systolic_blood_pressure" property="systolicBloodPressure" />
+  		<result column="diastolic_blood_pressure" property="diastolicBloodPressure" />
+  	</collection>
+  </resultMap>
+  <select id="selectAmbulantList" resultMap="ambulantListMap">
+  		SELECT 
+  			user.user_id,
+  			user.first_name,
+  			user.last_name,
+  			item.height,
+  			item.weight,
+  			item.vision_right,
+  			item.vision_left,
+  			item.hearing,
+  			item.systolic_blood_pressure,
+  			item.diastolic_blood_pressure
+  		FROM 
+  			m_user user
+  		LEFT JOIN
+  			m_test_item item
+  		ON
+  			user.user_id = item.user_id
+  		<where>
+  			<if test="id != 0">
+  				user.user_id = #{id}
+  			</if>
+  		</where>
+  </select>
+  <select id="selectAmbulantListPart" resultMap="ambulantListMap">
+  		SELECT 
+  			user.user_id,
+  			user.first_name,
+  			user.last_name,
+  			item.height,
+  			item.weight,
+  			item.vision_right,
+  			item.vision_left,
+  			item.hearing,
+  			item.systolic_blood_pressure,
+  			item.diastolic_blood_pressure
+  		FROM 
+  			m_user user
+  		LEFT JOIN
+  			m_test_item item
+  		ON
+  			user.user_id = item.user_id
+  		LIMIT #{pageFrom}, #{count}
+  </select>
+  <select id="selectCount">
+  		SELECT
+  			COUNT(*)
+  		FROM
+  			m_user
+  </select>
+</mapper>

@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+/* 文字フォント */
+* {
+	font-family: serif;
+}
+
+/* ヘッダ */
+header {
+	position: stickey;
+	top: 0;
+	width: 100%;
+	height: 50px;
+	color: white;
+	background-color: #9fa0a0;
+	align-items: center;
+	font-size: 28px;
+}
+
+/* ヘッダ */
+.header-text  {
+	margin-left: 16px;
+}
+
+/* コンテナ */
+.container {
+	width: 680px;
+	height: 530px;
+	box-shadow: 0 3px 5px rgga(0, 0, 0, 0.22);
+	margin: 60px auto 0px;
+	background: #F5F5F5;
+}
+
+/* コンテナ内タイトル */
+.sub-title {
+	padding: 18px;
+	padding-left: 78px;
+	font-size: 25px;
+}
+
+/* テーブル */
+table {
+	margin: auto;
+	border-spacing: 0;
+	text-align: center;
+}
+
+/* テーブルヘッダ・ボディ */
+th, td {
+	padding: 5px;
+	border: solid 1px #adadad;
+	margin: 0px;
+}
+
+/* テーブルヘッダ */
+th {
+	width: 100px;
+	color: white;
+	background-color: #9fa0a0;
+}
+
+/* テーブルデータ */
+td {
+	width: 300px;
+	font-size: 18px;
+	background-color: white;
+}
+
+/* ボタンコンテナ */
+.btn-container {
+	display: flex;
+	margin-top: 30px;
+	margin-left: 77px;
+}
+
+/* 各ボタン */
+.btn {
+	width: 240px;
+	height: 50px;
+	margin-right: 55px;
+	border-radius: 0.5rem;
+	font-size: 17px;
+	color: white;
+	border-color: #F5F5F5;;
+}
+
+/* 各ボタンホバー・フォーカス */
+.btn:hover, .btn:focus {
+	color: white;
+}
+
+/* CSVダウンロードボタン */
+.csvDownload-button {
+	height: 47px;
+	background-color: #afafb0;
+}
+
+/* CSVダウンロードボタンホバー・フォーカス */
+.csvDownload-button:hover, .csvDownload-button:focus {
+	background-color: #949495;
+}
+
+/* 戻るボタン */
+.return-button {
+	background-color: #A8BCF9;
+}
+
+/* 戻るボタンホバー・フォーカス */
+.return-button:hover, .return-button:focus {
+	background-color: #5D84F9;
+}

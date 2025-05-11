@@ -1,10 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>受診者一覧</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/ambulantlist.css}" />
+	<meta charset="UTF-8">
+	<title>受診者一覧</title>
 </head>
 <body>
-	<h1>受診者一覧</h1>
+	<!-- ヘッダ -->
+	<header>
+		<div class="header-text">
+			受診者一覧
+		</div>
+	</header>
+	<!-- メイン -->
+	<main>
+		<!-- コンテナ -->
+		<div class="card container">
+			<!-- タイトル -->
+			<div class="row">
+				<div class="col-sm-5 sub-title">
+					<label for="title-label" class="form-label">受診者一覧</label>
+				</div>
+			</div>
+			<!-- CSVダウンロードボタン -->
+			<form method="POST" th:action="@{/listdownload}">
+				<div class="csvbtn-container">
+					<input type="submit" id="csvDownloadBtn" class="btn btn-lg csvDownload-button" name="csvDownloadBtn" value="CSVダウンロード">
+				</div>
+			</form>
+			<!-- 受診者一覧テーブル -->
+			<div th:if="${selectResult}">
+				<table align="center">
+					<!-- ヘッダ -->
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th  class="name-col">氏名</th>
+							<th>身長(cm)</th>
+							<th>体重(kg)</th>
+							<th>左視力</th>
+							<th>右視力</th>
+							<th>聴力</th>
+							<th>最大血圧</th>
+							<th>最小血圧</th>
+						</tr>
+					</thead>
+					<!-- データ -->
+					<tbody>
+						<tr th:each="ambulantItem : ${selectResult.entities}">
+							<td><a th:href="@{/testresults/{id}(id=${ambulantItem.userId})}" th:text="${ambulantItem.userId}" /></td>
+							<td th:text="${ambulantItem.userName}" class="name-col"></td>
+							<td th:text="${ambulantItem.height}"></td>
+							<td th:text="${ambulantItem.weight}"></td>
+							<td th:text="${ambulantItem.visionLeft}"></td>
+							<td th:text="${ambulantItem.visionRight}"></td>
+							<td th:text="${ambulantItem.hearing}"></td>
+							<td th:text="${ambulantItem.systolicBloodPressure}"></td>
+							<td th:text="${ambulantItem.diastolicBloodPressure}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- ページネーション -->
+			<div class="p-2 pagination-container" th:if="selectResult">
+				<ul class="pagination">
+					<!-- 前へ -->
+					<li class="page-item" th:classappend="${selectResult.currentPage == 1 ? 'disabled' : ''}">
+						<a th:href="|@{/ambulantList/move}?p=${selectResult.currentPage - 1}|" class="page-link">前へ</a>
+					</li>
+					<!-- 1リンク -->
+					<li class="page-item" th:classappend="${selectResult.currentPage == 1 ? 'active' : ''}">
+						<a th:href="|@{/ambulantList/move}?p=1|" class="page-link">1</a>
+					</li>
+					<!-- ･･･ -->
+					<li class="page-item mx-2 pagination-pointitem" th:if="${selectResult.pageFrom != 2}">
+						･･･
+					</li>
+					<!-- ページネーション中間リンク -->
+					<li th:if="${selectResult.totalPageCount > 2}" class="page-item" 
+						th:each="index : ${#numbers.sequence(selectResult.pageFrom, selectResult.pageTo)}"
+						th:classappend="${selectResult.currentPage == index ? 'active' : ''}">
+						<a th:href="|@{/ambulantList/move}?p=${index}|" class="page-link" th:text="${index}"></a>
+					</li>
+					<!-- ･･･ -->
+					<li class="page-item mx-2 pagination-pointitem" th:if="${selectResult.totalPageCount - selectResult.pageTo > 1}">
+						･･･
+					</li>
+					<!-- 最終位置リンク -->
+					<li class="page-item" th:if="${selectResult.totalPageCount > 1}"
+						th:classappend="${selectResult.currentPage == selectResult.totalPageCount ? 'active' : ''}">
+						<a th:href="|@{/ambulantList/move}?p=${selectResult.totalPageCount}|" 
+							class="page-link" th:text="${selectResult.totalPageCount}">
+						</a>
+					</li>
+					<!-- 次へ -->
+					<li class="page-item" th:classappend="${selectResult.currentPage == selectResult.totalPageCount ? 'disabled' : ''}">
+						<a th:href="|@{/ambulantList/move}?p=${selectResult.currentPage + 1}|" class="page-link">次へ</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 戻るボタン -->
+			<form method="POST" th:action="@{/returnmenu}">
+				<input type="submit" id="returnBtn" class="btn btn-lg return-button" name="returnBtn" value="戻る">
+			</form>
+		</div>
+	</main>
 </body>
 </html>
