@@ -25,7 +25,6 @@ header {
 /* コンテナ */
 .container {
 	margin: auto;
-	position: absolute;
 	height: 650px;
 	align-items: center;
 }
@@ -36,9 +35,10 @@ header {
 	height: 490px;
 	text-align: center;
 	box-shadow: 0 3px 5px rgga(0, 0, 0, 0.22);
-	margin: 100px auto 0px;
-	background: #F9E6EB;
+	margin: 60px auto 0px;
+	background: #F5F5F5;
 }
+
 
 /* コンテナ内タイトル */
 .sub-title {

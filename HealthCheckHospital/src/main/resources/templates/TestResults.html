@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/webjars/bootrasp/5.3.0/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/testresults.css}" />
+	<meta charset="UTF-8">
+<title>個人結果</title>
+</head>
+<body>
+	<!-- ヘッダ -->
+	<header>
+		<div class="header-text">
+			個人結果
+		</div>
+	</header>
+	<!-- メイン -->
+	<main>
+		<!-- コンテナ -->
+		<div class="card container">
+			<!-- タイトル -->
+			<div class="row">
+				<div class="col-sm-5 sub-title">
+					<label for="title-label" class="form-label">個人結果</label>
+				</div>
+			</div>
+			<!-- 個人結果-->
+			<div th:object="${ambulantItem}">
+				<div>
+					<table>
+						<tbody>
+							<!-- ID -->
+							<tr>
+								<th>ID</th>
+								<td id="userId" class="form-control" name="userId" th:text="*{userId}"></td>
+							</tr>
+							<!-- 氏名 -->
+							<tr>
+								<th>氏名</th>
+								<td id="userName" class="form-control" name="userName" th:text="*{userName}"></td>
+							</tr>
+							<!-- 身長 -->
+							<tr>
+								<th>身長(cm)</th>
+								<td id="height" class="form-control" name="height" th:text="*{height}"></td>
+							</tr>
+							<!-- 体重 -->
+							<tr>
+								<th>体重(kg)</th>
+								<td id="weight" class="form-control" name="weight" th:text="*{weight}"></td>
+							</tr>
+							<!-- 左視力 -->
+							<tr>
+								<th>左視力</th>
+								<td id="visionLeft" class="form-control" name="visionLeft" th:text="*{visionLeft}"></td>
+							</tr>
+							<!-- 右視力 -->
+							<tr>
+								<th>右視力</th>
+								<td id="visionRight" class="form-control" name="visionRight" th:text="*{visionRight}"></td>
+							</tr>
+							<!-- 聴力 -->
+							<tr>
+								<th>聴力</th>
+								<td id="hearing" class="form-control" name="hearing" th:text="*{hearing}"></td>
+							</tr>
+							<!-- 最大血圧 -->
+							<tr>
+								<th>最大血圧</th>
+								<td id="systolicBloodPressure" class="form-control" name="systolicBloodPressure" th:text="*{systolicBloodPressure}"></td>
+							</tr>
+							<!-- 最小血圧 -->
+							<tr>
+								<th>最小血圧</th>
+								<td id="diastolicBloodPressure" class="form-control" name="diastolicBloodPressure" th:text="*{diastolicBloodPressure}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- 各ボタン -->
+				<div class="btn-container">
+					<!-- CSVダウンロード -->
+					<form method="POST" th:action="@{/itemdownload}">
+						<div class="csvbtn-container">
+							<input type="submit" id="csvDownloadBtn" class="btn btn-lg csvDownload-button" name="csvDownloadBtn" value="CSVダウンロード">
+						</div>
+					</form>
+					<!-- 戻るボタン -->
+					<form method="GET" th:action="@{/ambulantList}">
+						<input type="submit" id="returnBtn" class="btn btn-lg return-button" name="returnBtn" value="戻る">
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

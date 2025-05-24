@@ -1,0 +1,161 @@
+@charset "UTF-8";
+
+/* 文字フォント */
+* {
+	font-family: serif;
+}
+
+/* ヘッダ */
+header {
+	position: stickey;
+	top: 0;
+	width: 100%;
+	height: 50px;
+	color: white;
+	background-color: #9fa0a0;
+	align-items: center;
+	font-size: 28px;
+}
+
+/* ヘッダ */
+.header-text {
+	margin-left: 16px;
+}
+
+/* コンテナ */
+.container {
+	width: 880px;
+	height: 640px;
+	text-align: center;
+	box-shadow: 0 3px 5px rgga(0, 0, 0, 0.22);
+	margin: 60px auto 0px;
+	background: #F5F5F5;
+}
+
+/* コンテナ内タイトル */
+.sub-title {
+	margin-top: 25px;
+	font-size: 25px;
+}
+
+/* テーブル */
+table {
+	margin: auto;
+	border-spacing: 0;
+	font-size: 13px;
+}
+
+/* テーブルヘッダ・ボディ */
+th, td {
+	padding: 3px;
+	border: solid 1px #adadad;
+	margin: 0px;
+}
+
+/* テーブルヘッダ */
+th {
+	min-width: 78px;
+	border: 1px solid #595857;
+    box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+	color: white;
+	background-color: #9fa0a0;
+}
+
+/* テーブルデータ */
+td {
+ 	text-align: center;
+ 	border-left: 1px solid #a8b7c5;
+ 	border-bottom: 1px solid #a8b7c5;
+ 	border-top:none;
+ 	padding: 4px 0;
+ 	width: 77px;
+ 	background: #FFFFFF;
+}
+
+tbody {
+ 	overflow-x: hidden;
+ 	overflow-y: scroll;
+}
+
+/* リンク */
+a {
+ 	display: inline-block;
+ 	padding: 0.2rem;
+ 	width: 64px;
+ 	text-decoration: none;
+ 	text-align: center;
+ 	color: #ffffff;
+ 	font-weight: bold;
+ 	background-color: #afafb0;
+ 	border-radius: 0.5vh;
+ 	box-shadow: 0px 0px 3px #aaaaaa;
+ 	transition: 0.2s;
+}
+
+/* リンクホバー */
+a:hover {
+ 	background-color: #949495;
+ 	box-shadow: none;
+}
+
+/* テーブル：氏名列 */
+.name-col {
+	width: 170px;
+}
+
+/* ページネーションコンテナ */
+.pagination-container {
+	position: absolute;
+	top: 500px;
+	left: 34px;
+}
+
+/* ページネーション… */
+.pagination-pointitem {
+	line-height: 36px;
+}
+
+/* 各ボタン */
+.btn {
+	font-size: 17px;
+	color: white;
+}
+
+/* 各ボタンホバー・フォーカス */
+.btn:hover, .btn:focus {
+	color: white;
+}
+
+/* CSVダウンロードコンテナ */
+.csvbtn-container {
+	margin: 0px 30px 7px 0px;
+	text-align: right;
+}
+
+/* CSVダウンロードボタン */
+.csvDownload-button {
+	width: 180px;
+	height: 47px;
+	background-color: #afafb0;
+}
+
+/* CSVダウンロードボタンホバー・フォーカス */
+.csvDownload-button:hover, .csvDownload-button:focus {
+	background-color: #949495;
+}
+
+/* 戻るボタン */
+.return-button {
+	width: 180px;
+	height: 50px;
+	position: absolute;
+	top: 550px;
+	right: 41px;
+	/* margin: 0px 658px; */
+	background-color: #A8BCF9;
+}
+
+/* 戻るボタンホバー・フォーカス */
+.return-button:hover, .return-button:focus {
+	background-color: #5D84F9;
+}
