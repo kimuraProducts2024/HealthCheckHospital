@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- UserRegist情報のマッパー -->
+<mapper namespace="com.healthcheck.hospital.repository.UserRegistMapper">
+<!-- m_userテーブルのInsert -->
+<insert id="insertMUser" parameterType="com.healthcheck.hospital.entity.MUser">
+	INSERT INTO 
+		m_user
+		(
+			password,
+			first_name,
+			last_name,
+			age,
+			sex,
+			tel
+		)
+	VALUES
+		(
+			#{password},
+			#{firstName},
+			#{lastName},
+			#{age},
+			#{sex},
+			#{tel}
+		);
+</insert>
+<!-- m_test_itemテーブルのInsert -->
+<insert id="insertMTestItem">
+	INSERT INTO
+		m_test_item
+		(
+			user_id
+		)
+		SELECT MAX(user_id) FROM m_user
+</insert>
+</mapper>

@@ -11,7 +11,8 @@ import com.healthcheck.hospital.entity.MUser;
  */
 @Mapper
 public interface AmbulantListMapper {
-	// 受診者一覧をデータ検索
+	// id=0：全受診者一覧情報をデータ検索
+	// id<>0：idに一致する受診者情報をデータ検索
 	List<MUser> selectAmbulantList(int id);
 	
 	// 表示分の受診者一覧をデータ検索

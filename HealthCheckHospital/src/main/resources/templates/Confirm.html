@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/userregist.css}" />
+	<title>受診者確認</title>
+</head>
+<body>
+	<!-- ヘッダ -->
+	<header>
+		<div class="header-text">受診者確認</div>
+	</header>
+	<!-- メイン -->
+	<main>
+		<!-- コンテナ -->
+		<div class="container">
+			<div class="card sub-container">
+				<!-- タイトル -->
+				<div class="row">
+					<div class="col-sm-5 sub-title">
+						<label for="title-label" class="form-label">受診者確認</label>
+					</div>
+				</div>
+				<form method="POST" th:action="@{/confirm}" th:object="${userRegistForm}">
+					<!-- 表示項目 -->
+					<div class="table-container">
+						<table>
+							<tbody>
+								<!-- 姓 -->
+								<tr>
+									<th>姓</th>
+									<td><input type="text" id="lastName" class="form-control confirm-label" name="lastName" th:field="*{lastName}" tabIndex="-1" readonly /></td>
+								</tr>
+								<!-- 名 -->
+								<tr>
+									<th>名</th>
+									<td><input type="text" id="firstName" class="form-control confirm-label" name="firstName" th:field="*{firstName}" tabIndex="-1" readonly /></td>
+								</tr>
+								<!-- 年齢 -->
+								<tr>
+									<th>年齢</th>
+									<td>
+										<div class="input-age">
+											<input type="number" id="age" class="form-control confirm-label" name="age" th:field="*{age}" tabIndex="-1" readonly />
+										</div>
+									</td>
+								</tr>
+								<!-- 性別 -->
+								<tr>
+									<th>性別</th>
+									<td>
+										<div>
+											<select id="sex" class="form-control confirm-sex-label" name="sex" th:field="*{sex}" tabIndex="-1" style="enabled:false">
+												<option th:value="1">男性</option>
+												<option th:value="2">女性</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+								<!-- 電話番号 -->
+								<tr>
+									<th>電話番号</th>
+									<td>
+										<div class="tel-container">
+											<input type="text" id="telFirstBlock" class="form-control confirm-label" name="telFirstBlock" th:field="*{telFirstBlock}" tabIndex="-1" readonly />
+											<div class="confirm-label">－</div>
+											<input type="number" id="telSecondBlock" class="form-control confirm-label" name="telSecondBlock" th:field="*{telSecondBlock}" tabindex="-1" readonly />
+											<div class="confirm-label">－</div>
+											<input type="number" id="telThirdBlock" class="form-control confirm-label" name="telThirdBlock" th:field="*{telThirdBlock}" tabindex="-1" readonly />
+										</div>
+									</td>
+								</tr>
+								<!-- パスワード -->
+								<tr>
+									<th>パスワード</th>
+									<input type="text" id="password" class="hidden-password" name="password" th:field="*{password}" />
+									<td><input type="text" id="maskPassword" class="form-control confirm-label" name="maskPassword" th:field="*{maskPassword}" tabindex="-1" readonly /></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- 各ボタン -->
+					<div class="btn-container">
+						<div>
+							<input type="submit" id="returnBtn" class="btn btn-lg return-button" name="returnBtn" value="戻る">
+						</div>
+						<div>
+							<input type="submit" id="completeBtn" class="btn btn-lg complete-button" name="completeBtn" value="確定">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
