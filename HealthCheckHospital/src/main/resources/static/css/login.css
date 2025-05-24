@@ -2,9 +2,6 @@
 
 /* コンテナ */
 .container {
-	margin: auto;
-	height: 650px;
-	align-items: center;
 	display: block;
 }
 

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.healthcheck.hospital.entity.MUser;
 import com.healthcheck.hospital.form.AmbulantListForm;
+import com.healthcheck.hospital.form.UserRegistForm;
 import com.healthcheck.hospital.service.AmbulantListService;
 
 import jakarta.servlet.http.HttpSession;
@@ -27,16 +28,6 @@ public class MainMenuController {
 	// 受診者一覧サービス定義
 	@Autowired
 	AmbulantListService ambulantListService;
-	
-	/**
-	 * 登録完了画面：メインメニュー画面に遷移する
-	 * @return 遷移先のHTMLファイル名
-	 */
-	@GetMapping("/mainmenu")
-	public String showMainMenu(HttpSession session) {
-		// 遷移先のHTMLファイル名を返す
-		return "MainMenu";
-	}
 	
 	/**
 	 * メインメニュー画面：受診者一覧リンクをクリックしたとき、
@@ -56,7 +47,14 @@ public class MainMenuController {
 	 * @return 遷移先のHTMLファイル名
 	 */
 	@GetMapping("/userRegist")
-	public String showUserRegist() {
+	public String showUserRegist(UserRegistForm userRegistForm, Model model) {
+		
+		userRegistForm.setAge(null);
+		
+		// 受診者登録情報を登録
+		model.addAttribute("userRegistForm", userRegistForm);
+		
+		
 		return "UserRegist";
 	}
 	

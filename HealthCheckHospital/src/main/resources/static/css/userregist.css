@@ -1,0 +1,200 @@
+@charset "UTF-8";
+
+/* 文字フォント */
+* {
+	font-family: serif;
+}
+
+/* ヘッダ */
+header {
+	position: stickey;
+	top: 0;
+	width: 100%;
+	height: 50px;
+	color: white;
+	background-color: #9fa0a0;
+	align-items: center;
+	font-size: 28px;
+}
+
+/* ヘッダ */
+.header-text {
+	margin-left: 16px;
+}
+
+/* コンテナ */
+.container {
+	margin: auto;
+	height: 650px;
+	align-items: center;
+}
+
+/* サブコンテナ */
+.sub-container {
+	width: 680px;
+	height: 650px;
+	text-align: center;
+	box-shadow: 0 3px 5px rgga(0, 0, 0, 0.22);
+	margin: 60px auto 0px;
+	background: #F5F5F5;
+}
+
+
+/* コンテナ内タイトル */
+.sub-title {
+	margin-top: 45px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	font-size: 25px;
+}
+
+/* 入力テーブルコンテナ */
+.table-container {
+	margin: 0 auto;
+	width: 60%;
+}
+
+/* 入力テーブル */
+table {
+	height: 380px;
+}
+
+/* 入力項目ラベル */
+th {
+	padding-right: 15px;
+	width: 100px;
+	text-align: left;
+}
+
+/* 年齢テキスト */
+.input-age {
+	width: 90px;
+}
+
+/* 数値テキスト：スピンボタン非表示 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* 性別セレクトボックス */
+.select-sex {
+	position: relative;
+	width: 140px;
+}
+
+.select-sex::before,
+.select-sex::after {
+	position: absolute;
+	content: '';
+	pointer-events: none;
+}
+
+.select-sex::before {
+	display: inline-block;
+	right: 0;
+	width: 2.8em;
+	height: 2.4em;
+	border-radius: 0 3px 3px 0;
+	background-color: #9fa0a0;
+}
+
+.select-sex::after {
+	position: absolute;
+	top: 50%;
+	right: 1.4em;
+	transform: translate(50%, -50%) rotate(45deg);
+	width: 6px;
+	height: 6px;
+	border-bottom: 3px solid #fff;
+	border-right: 3px solid #fff;
+}
+
+.select-sex select {
+	appearance: none;
+	width: 140px;
+	padding: .4em 3.6em .4em .8em;
+	border: none;
+	border-radius: 3px;
+	background-color: #ffffff;
+	color: #333;
+	font-size: 1em;
+	cursor: pointer;
+}
+
+/* 電話番号コンテナ */
+.tel-container {
+	display:flex;
+}
+
+/* 電話番号－記号 */
+.tel-container div {
+	line-height: 35px;
+	margin: 0 5px;
+}
+
+/* パスワード：非表示項目 */
+.hidden-password {
+	display: none;
+}
+
+/* 確認項目 */
+.confirm-label {
+	pointer-events: none;
+	background-color: transparent;
+}
+
+/* 確認項目：性別 */
+.confirm-sex-label {
+	pointer-events: none;
+	width: 90px;
+	background-color: #F5F5F5;
+}
+
+/* ボタンコンテナ */
+.btn-container {
+	display: flex;
+	margin-top: 30px;
+	margin-left: 70px;
+}
+
+/* 各ボタン */
+.btn {
+	width: 240px;
+	height: 50px;
+	margin-right: 55px;
+	color: white;
+}
+
+/* 各ボタンホバー・フォーカス */
+.btn:hover, .btn:focus {
+	color: white;
+}
+
+/* 戻るボタン */
+.return-button {
+	background-color: #A8BCF9;
+}
+
+/* 戻るボタンホバー・フォーカス */
+.return-button:hover, .return-button:focus {
+	background-color: #5D84F9;
+}
+
+/* 確認・確定ボタン */
+.confirm-button, .complete-button {
+	background-color: #afafb0;
+}
+
+/* 確認・確定ボタンホバー・フォーカス */
+.confirm-button:hover, .complete-button:hover,
+.confirm-button:focus, .complete-button:focus {
+	background-color: #949495;
+}
+
+/* エラーメッセージ */
+.error-label {
+	margin-top: 23px;
+	color: red;
+}

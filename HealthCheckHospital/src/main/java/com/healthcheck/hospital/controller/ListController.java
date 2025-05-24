@@ -18,6 +18,7 @@ import jakarta.servlet.http.HttpSession;
 
 /**
  * 受診者一覧コントローラ
+ * 受診者一覧画面表示、個人結果画面表示、CSV出力処理を行う
  */
 @Controller
 public class ListController {
