@@ -45,6 +45,17 @@ table {
 	font-size: 13px;
 }
 
+/* 画面幅が990px以下の場合、
+   受診者一覧テーブルがスクロール表示になる */
+@media (max-width: 990px) {
+	/* テーブル */
+	table {
+		display: block;
+		height: 355px;
+		overflow: scroll;
+	}
+}
+
 /* テーブルヘッダ・ボディ */
 th, td {
 	padding: 3px;

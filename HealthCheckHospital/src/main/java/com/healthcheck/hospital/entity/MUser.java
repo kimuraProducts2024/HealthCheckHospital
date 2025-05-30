@@ -14,10 +14,10 @@ public class MUser {
 	// パスワード
 	private String password;
 	
-	// 苗字
+	// 名
 	private String firstName;
 	
-	// 名前
+	// 姓
 	private String lastName;
 	
 	// 年齢

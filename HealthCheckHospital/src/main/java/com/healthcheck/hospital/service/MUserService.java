@@ -134,6 +134,4 @@ public class MUserService {
 		
 		return true;
 	}
-	
-	
 }
